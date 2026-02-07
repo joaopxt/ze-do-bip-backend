@@ -16,6 +16,7 @@ import { ProdutosGuardaModule } from './produtos_guarda/produtos_guarda.module';
 import { UtilsModule } from './utils/utils.module';
 import { BipagemParcialEnderecoModule } from './bipagem-parcial-endereco/bipagem-parcial-endereco.module';
 import { SeederModule } from './seeder/seeder.module';
+import { EntregaModule } from './entrega/entrega.module';
 
 @Module({
   imports: [
@@ -80,6 +81,7 @@ import { SeederModule } from './seeder/seeder.module';
     UtilsModule,
     BipagemParcialEnderecoModule,
     SeederModule,
+    EntregaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
