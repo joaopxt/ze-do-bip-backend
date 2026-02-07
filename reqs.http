@@ -1,0 +1,494 @@
+###
+### ============================================
+### VERSÃO LOCAL (http://localhost:3001)
+### ============================================
+###
+
+### LOCAL: Sync Compra
+POST http://localhost:3000/compra/sync
+
+### LOCAL: Sync Produtos
+POST http://localhost:3000/compra/sync-produtos
+
+### LOCAL: Get All Compra
+GET http://localhost:3000/compra
+
+### LOCAL: Get One Compra
+GET http://localhost:3000/compra/2
+
+### LOCAL: Get All Prod Nfc
+GET http://localhost:3000/prod-nfc
+
+### LOCAL: Get One Prod Nfc
+GET http://localhost:3000/prod-nfc/16
+
+### LOCAL: Sync Estoquista
+POST http://localhost:3000/estoquista/sync
+
+### LOCAL: Create Guarda
+POST http://localhost:3000/guardas/create
+Content-Type: application/json
+Authorization: Bearer dev-admin
+
+{
+  "createGuardaSeederDto": {
+    "cd_fornece": "01",
+    "sg_serie": "1234567890",
+    "nu_nota": "1234567890",
+    "codoper": "8243"
+  }
+}
+
+### LOCAL: Create Produtos Guarda
+POST http://localhost:3000/produtos-guarda/create
+Content-Type: application/json
+Authorization: Bearer dev-admin
+
+{
+  
+    "cd_produto": "084484",
+    "quantidade": 3,
+    "sq_guarda": 294
+  
+}
+### LOCAL: Get All Guardas
+GET http://localhost:3000/guardas?cd_usuario=7983
+
+### LOCAL: Get One Guarda
+GET http://localhost:3000/guardas/11
+
+### LOCAL: Iniciar Guarda
+POST http://localhost:3000/guardas/35/iniciar
+
+### LOCAL: Finalizar Guarda
+POST http://localhost:3000/guardas/10/finalizar
+
+### LOCAL: Sync Fornecedor
+POST http://localhost:3000/fornecedor/sync
+
+### LOCAL: Sync Produto
+POST http://localhost:3000/produtos/sync
+
+### LOCAL: Sync PRD_LOJA
+POST http://localhost:3000/prd-loja/sync
+
+### LOCAL: Marcar como bipado
+POST http://localhost:3000/produtos/051968/bipar
+Authorization: Bearer dev-admin
+Content-Type: application/json
+
+{
+  "incremento": 1,
+  "endereco": "B.07.06.05.01",
+  "sq_guarda": 292
+}
+
+### LOCAL: Marcar como bipado (Guarda)
+POST http://localhost:3001/guardas/produtos/16/bipar
+Content-Type: application/json
+
+{
+  "quantidade": 1,
+  "endereco": "1234567890",
+  "guardaId": 9
+}
+
+### LOCAL: Conferir Conexões
+GET http://localhost:3000/connections
+
+### LOCAL: Health Check
+GET http://localhost:3000/health
+
+### LOCAL: GET GuardasProd por usuário
+GET http://localhost:3001/guardas-prod
+
+### LOCAL: GET Detalhes GuardaProd
+GET http://localhost:3001/guardas-prod/0000047752
+
+### LOCAL: Sync GuardaProd
+POST http://localhost:3001/guardas/sync-siac
+
+### LOCAL: Buscar produtos por guarda
+GET http://localhost:3001/guardas/11/produtos
+
+###
+### ============================================
+### VERSÃO PRODUÇÃO (https:// ze-do-bip.pecista.com.br)
+### ============================================
+###
+
+### PROD: Sync Compra
+POST https://ze-do-bip.pecista.com.br/compra/sync
+
+### PROD: Sync Produtos
+POST https://ze-do-bip.pecista.com.br/compra/sync-produtos
+
+### PROD: Get All Compra
+GET https://ze-do-bip.pecista.com.br/compra
+
+### PROD: Get One Compra
+GET https://ze-do-bip.pecista.com.br/compra/2
+
+### PROD: Get All Prod Nfc
+GET https://ze-do-bip.pecista.com.br/prod-nfc
+
+### PROD: Get One Prod Nfc
+GET https://ze-do-bip.pecista.com.br/prod-nfc/16
+
+### PROD: Sync Estoquista
+POST https://ze-do-bip.pecista.com.br/estoquista/sync
+
+### PROD: Create Guarda
+POST https://ze-do-bip.pecista.com.br/guardas/create
+Authorization: Bearer dev-admin
+Content-Type: application/json
+
+{
+  "createGuardaSeederDto": {
+    "cd_fornece": "01",
+    "sg_serie": "1234567890",
+    "nu_nota": "1234567890",
+    "codoper": "8243"
+  }
+}
+
+### PROD: Get All Guardas
+GET https://ze-do-bip.pecista.com.br/guardas?cd_usuario=7665
+
+### PROD: Get One Guarda
+GET https://ze-do-bip.pecista.com.br/guardas/42
+
+### PROD: Iniciar Guarda
+POST https://ze-do-bip.pecista.com.br/guardas/9/iniciar
+
+### PROD: Finalizar Guarda
+POST https://ze-do-bip.pecista.com.br/guardas/10/finalizar
+
+### PROD: Sync Fornecedor
+POST https://ze-do-bip.pecista.com.br/fornecedor/sync
+
+### PROD: Sync Produto
+POST https://ze-do-bip.pecista.com.br/produtos/sync
+
+### PROD: Sync PRD_LOJA
+POST https://ze-do-bip.pecista.com.br/prd-loja/sync
+
+### PROD: Marcar como bipado
+POST https://ze-do-bip.pecista.com.br/prod_nfc/16/bipar
+Content-Type: application/json
+
+{
+  "quantidade": 1,
+  "endereco": "1234567890",
+  "guardaId": 9
+}
+
+### PROD: Marcar como bipado (Guarda)
+POST https://ze-do-bip.pecista.com.br/guardas/produtos/16/bipar
+Content-Type: application/json
+
+{
+  "quantidade": 1,
+  "endereco": "1234567890",
+  "guardaId": 9
+}
+
+### PROD: Conferir Conexões
+GET https://ze-do-bip.pecista.com.br/connections
+
+### PROD: Health Check
+GET https://ze-do-bip.pecista.com.br/health
+
+### PROD: Get Guardas por usuário
+GET https://api-stage-ze-do-bip.pecista.com.br/guardas?cd_usuario=7732
+Authorization: Bearer dev-admin
+
+
+### PROD: Sync Guardas (SIAC)
+POST https://ze-do-bip.pecista.com.br/guardas/sync-siac
+
+### LOCAL: Logout All (invalidar todas as sessões do usuário)
+POST  https://ze-do-bip.pecista.com.br/auth/logout-all
+Content-Type: application/json
+
+{
+  "cd_usuario": "7665"
+}
+
+###
+### ============================================
+### TESTES DE AUTORIZAÇÃO E AUTENTICAÇÃO
+### ============================================
+###
+
+### ============================================
+### 1. AUTENTICAÇÃO (LOGIN)
+### ============================================
+
+### LOCAL: Login - Obter Token JWT
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "cd_usuario": "12345",
+  "senha": "senha123"
+}
+
+### LOCAL: Validar Token
+POST http://localhost:3000/auth/validate
+Content-Type: application/json
+
+{
+  "token": "SEU_TOKEN_AQUI"
+}
+
+### LOCAL: Health Check Auth (Público)
+GET http://localhost:3000/auth/health
+
+### ============================================
+### 2. TESTES SEM TOKEN (DEVEM FALHAR)
+### ============================================
+
+### LOCAL: Tentar acessar rota protegida SEM token (deve retornar 401)
+GET http://localhost:3000/guardas
+Authorization: Bearer dev-admin
+
+### LOCAL: Tentar criar guarda SEM token (deve retornar 401)
+POST http://localhost:3000/guardas/create
+Content-Type: application/json
+
+{
+  "compra": 69,
+  "estoquista": 7740
+}
+
+### LOCAL: Tentar acessar produtos SEM token (deve retornar 401)
+GET http://localhost:3000/produtos
+
+### LOCAL: Tentar acessar admin panel SEM token (deve retornar 401)
+GET http://localhost:3000/auth/admin/roles
+
+### ============================================
+### 3. TESTES COM TOKEN VÁLIDO
+### ============================================
+### IMPORTANTE: Substitua "SEU_TOKEN_AQUI" pelo token retornado no login
+
+### LOCAL: Acessar guardas COM token válido
+GET http://localhost:3000/guardas?cd_usuario=7983
+Authorization: Bearer SEU_TOKEN_AQUI
+
+### LOCAL: Criar guarda COM token válido
+POST http://localhost:3000/guardas/create
+Authorization: Bearer SEU_TOKEN_AQUI
+Content-Type: application/json
+
+{
+  "compra": 69,
+  "estoquista": 7740
+}
+
+### LOCAL: Listar produtos COM token válido (requer permissão 'guarda')
+GET http://localhost:3000/produtos
+Authorization: Bearer SEU_TOKEN_AQUI
+
+### LOCAL: Buscar produto por código COM token válido
+GET http://localhost:3000/produtos/123456
+Authorization: Bearer SEU_TOKEN_AQUI
+
+### LOCAL: Buscar produto por código de barras COM token válido
+GET http://localhost:3000/produtos/get-by-barra/7891234567890
+Authorization: Bearer SEU_TOKEN_AQUI
+
+### LOCAL: Listar compras COM token válido
+GET http://localhost:3000/compra
+Authorization: Bearer SEU_TOKEN_AQUI
+
+### LOCAL: Listar produtos NFC COM token válido
+GET http://localhost:3000/prod-nfc
+Authorization: Bearer SEU_TOKEN_AQUI
+
+### LOCAL: Listar fornecedores COM token válido
+GET http://localhost:3000/fornecedor
+Authorization: Bearer SEU_TOKEN_AQUI
+
+### ============================================
+### 4. TESTES DE PERMISSÕES ESPECÍFICAS
+### ============================================
+
+### LOCAL: Alterar endereço (requer permissão 'enderecamento' - apenas admin)
+PUT http://localhost:3000/produtos/alterar-endereco/123456
+Authorization: Bearer SEU_TOKEN_AQUI
+Content-Type: application/json
+
+{
+  "enderecoNovo": "A01B02C03"
+}
+
+### LOCAL: Atualizar endereço PRD_LOJA (requer permissão 'enderecamento' - apenas admin)
+POST http://localhost:3000/prd-loja/update-endereco
+Authorization: Bearer SEU_TOKEN_AQUI
+Content-Type: application/json
+
+{
+  "enderecoAntigo": "A01B02C03",
+  "enderecoNovo": "A01B02C04"
+}
+
+### LOCAL: Acessar painel admin (requer permissão 'painel' - apenas admin)
+GET http://localhost:3000/auth/admin/roles
+Authorization: Bearer dev-admin
+
+### LOCAL: Listar permissões no painel admin
+GET http://localhost:3000/auth/admin/permissions
+Authorization: Bearer SEU_TOKEN_AQUI
+
+### LOCAL: Listar módulos de um usuário (admin)
+GET http://localhost:3000/auth/admin/users/7665/modules
+Authorization: Bearer dev-admin
+
+### ============================================
+### 5. TESTES COM ADMIN_DEV (BYPASS EM DESENVOLVIMENTO)
+### ============================================
+### IMPORTANTE: Funciona apenas em NODE_ENV=development
+### Substitua "dev-admin" pelo valor de ADMIN_DEV do seu .env
+
+### LOCAL: Acessar guardas com ADMIN_DEV (bypass)
+GET http://localhost:3000/guardas
+Authorization: Bearer dev-admin
+
+### LOCAL: Acessar produtos com ADMIN_DEV (bypass)
+GET http://localhost:3000/produtos
+Authorization: Bearer dev-admin
+
+### LOCAL: Alterar endereço com ADMIN_DEV (bypass - tem todas as permissões)
+PUT http://localhost:3000/produtos/alterar-endereco/123456
+Authorization: Bearer dev-admin
+Content-Type: application/json
+
+{
+  "enderecoNovo": "A01B02C03"
+}
+
+### LOCAL: Acessar painel admin com ADMIN_DEV (bypass)
+GET http://localhost:3000/auth/admin/roles
+Authorization: Bearer dev-admin
+
+### LOCAL: Listar módulos de usuário com ADMIN_DEV (bypass)
+GET http://localhost:3000/auth/admin/users/12345/modules
+Authorization: Bearer dev-admin
+
+### ============================================
+### 6. GERENCIAMENTO DE SESSÕES
+### ============================================
+
+### LOCAL: Listar sessões ativas do usuário
+GET http://localhost:3000/auth/sessions
+Authorization: Bearer SEU_TOKEN_AQUI
+
+### LOCAL: Logout (invalidar sessão atual)
+POST http://localhost:3000/auth/logout
+Authorization: Bearer SEU_TOKEN_AQUI
+
+### LOCAL: Logout All (invalidar todas as sessões do usuário)
+POST http://localhost:3000/auth/logout-all
+Content-Type: application/json
+
+{
+  "cd_usuario": "7732"
+}
+
+### ============================================
+### 7. TESTES DE ROTAS PÚBLICAS (NÃO PRECISAM DE TOKEN)
+### ============================================
+
+### LOCAL: Health Check (público)
+GET http://localhost:3000/health
+
+### LOCAL: Auth Health (público)
+GET http://localhost:3000/auth/health
+
+### LOCAL: Sync Compra (público)
+POST http://localhost:3000/compra/sync
+
+### LOCAL: Sync Produtos (público)
+POST http://localhost:3000/produtos/sync
+
+### LOCAL: Sync Estoquista (público)
+POST http://localhost:3000/estoquista/sync
+
+### LOCAL: Sync Fornecedor (público)
+POST http://localhost:3000/fornecedor/sync
+
+### LOCAL: Sync PRD_LOJA (público)
+POST http://localhost:3000/prd-loja/sync
+
+### ============================================
+### 8. TESTES DE ERRO DE PERMISSÃO
+### ============================================
+### Estes testes devem retornar 403 Forbidden quando o usuário não tem a permissão necessária
+
+### LOCAL: Tentar alterar endereço sem permissão 'enderecamento' (usuário armazenista)
+PUT http://localhost:3000/produtos/alterar-endereco/123456
+Authorization: Bearer TOKEN_USUARIO_ARMAZENISTA
+Content-Type: application/json
+
+{
+  "enderecoNovo": "A01B02C03"
+}
+
+### LOCAL: Tentar acessar painel admin sem permissão 'painel' (usuário armazenista)
+GET http://localhost:3000/auth/admin/roles
+Authorization: Bearer TOKEN_USUARIO_ARMAZENISTA
+
+### ============================================
+### 9. ADMIN PANEL - GERENCIAMENTO DE ROLES E PERMISSÕES
+### ============================================
+### IMPORTANTE: Todas essas rotas requerem permissão 'painel' (apenas admin)
+
+### LOCAL: Listar todas as roles
+GET http://localhost:3000/auth/admin/roles
+Authorization: Bearer SEU_TOKEN_ADMIN_AQUI
+
+### LOCAL: Criar nova role
+POST http://localhost:3000/auth/admin/roles
+Authorization: Bearer SEU_TOKEN_ADMIN_AQUI
+Content-Type: application/json
+
+{
+  "name": "supervisor",
+  "description": "Supervisor de estoque"
+}
+
+### LOCAL: Buscar role por ID
+GET http://localhost:3000/auth/admin/roles/1
+Authorization: Bearer SEU_TOKEN_ADMIN_AQUI
+
+### LOCAL: Listar todas as permissões (módulos)
+GET http://localhost:3000/auth/admin/permissions
+Authorization: Bearer SEU_TOKEN_ADMIN_AQUI
+
+### LOCAL: Atribuir role a usuário
+POST http://localhost:3000/auth/admin/users/8243/roles
+Authorization: Bearer dev-admin
+Content-Type: application/json
+
+{
+  "role_id": 2
+}
+
+### LOCAL: Remover role de usuário
+DELETE http://localhost:3000/auth/admin/users/12345/roles
+Authorization: Bearer SEU_TOKEN_ADMIN_AQUI
+
+### LOCAL: Atribuir permissão customizada a usuário
+POST http://localhost:3000/auth/admin/users/12345/permissions
+Authorization: Bearer SEU_TOKEN_ADMIN_AQUI
+Content-Type: application/json
+
+{
+  "permission_id": 1
+}
+
+### LOCAL: Remover permissão customizada de usuário
+DELETE http://localhost:3000/auth/admin/users/12345/permissions/1
+Authorization: Bearer SEU_TOKEN_ADMIN_AQUI

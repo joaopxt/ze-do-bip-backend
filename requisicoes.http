@@ -1,0 +1,34 @@
+POST https://ze-do-bip.pecista.com.br/auth/login
+Content-Type: application/json
+
+{
+    "cd_usuario": "8243",
+    "senha": "171020"
+}
+
+### Validate Token
+POST http://localhost:3000/auth/validate
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4MjQzIiwibm9tZSI6IkpPQU8gVklDVE9SIiwianRpIjoiNWZhMzA5ZjQtZDIzMy00MmJiLTgyMTMtNzg5OGZlMzM2ODE1IiwiaWF0IjoxNzY1MzA5ODM2LCJleHAiOjE3Njc5MDE4MzZ9.y3NM4PfNhap0PJeUPuE1AnhKjhadIc6VnvubyAf7YAQ"
+}
+
+### Logout
+POST http://localhost:3000/auth/logout?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4MjQzIiwibm9tZSI6IkpPQU8gVklDVE9SIiwianRpIjoiZWJkN2MxNDEtNDJkZi00ZWZhLTg5NzEtYmI0NjdiZDc5YTc1IiwiaWF0IjoxNzY2NDkyNDE0LCJleHAiOjE3NjkwODQ0MTR9.b5e2FNE27hHIikfIVaqYzHrwWeguwKHBgk37URv6UUc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4MjQzIiwibm9tZSI6IkpPQU8gVklDVE9SIiwianRpIjoiZWJkN2MxNDEtNDJkZi00ZWZhLTg5NzEtYmI0NjdiZDc5YTc1IiwiaWF0IjoxNzY2NDkyNDE0LCJleHAiOjE3NjkwODQ0MTR9.b5e2FNE27hHIikfIVaqYzHrwWeguwKHBgk37URv6UUc
+
+### Logout All
+POST http://localhost:3000/auth/logout-all
+Content-Type: application/json
+
+{
+    "cd_usuario": "8243"
+}
+
+### Get Sessions
+GET http://localhost:3000/auth/sessions
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4MjQzIiwibm9tZSI6IkpPQU8gVklDVE9SIiwianRpIjoiNWZhMzA5ZjQtZDIzMy00MmJiLTgyMTMtNzg5OGZlMzM2ODE1IiwiaWF0IjoxNzY1MzA5ODM2LCJleHAiOjE3Njc5MDE4MzZ9.y3NM4PfNhap0PJeUPuE1AnhKjhadIc6VnvubyAf7YAQ
+
+### Health check EC2
+GET https://ze-do-bip.pecista.com.br/health
